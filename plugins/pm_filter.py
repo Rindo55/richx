@@ -717,20 +717,20 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 return            
             else:
 		dm = await client.send_cached_media(
-                chat_id=query.from_user.id,
-                file_id=file_id,
-                caption=f_caption,
-                protect_content=True if ident == "filep" else False,
-                reply_markup=InlineKeyboardMarkup(
-			[
+			chat_id=query.from_user.id,
+			file_id=file_id,
+                	caption=f_caption,
+                	protect_content=True if ident == "filep" else False,
+                	reply_markup=InlineKeyboardMarkup(
 				[
-					InlineKeyboardButton(
-						"👨‍👩‍👧‍👦 ᴘʟᴇᴀsᴇ sʜᴀʀᴇ & sᴜᴘᴘᴏʀᴛ 🧲", url=f"https://t.me/share/url?url=https://t.me/{temp.U_NAME}"
-					)
-				],
-			]
-		),
-		)
+					[
+						InlineKeyboardButton(
+							"👨‍👩‍👧‍👦 ᴘʟᴇᴀsᴇ sʜᴀʀᴇ & sᴜᴘᴘᴏʀᴛ 🧲", url=f"https://t.me/share/url?url=https://t.me/{temp.U_NAME}"
+						)
+					],
+				]
+			),
+			)
 		stream, download = await direct_gen_handler(dm)
                 if stream and download:
 			await dm.edit_reply_markup(
