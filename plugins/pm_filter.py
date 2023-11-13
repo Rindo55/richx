@@ -716,6 +716,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             else:
                 dm = await client.send_cached_media(
                         chat_id=query.from_user.id,
+                        file_id=file_id,
                         caption=f_caption,
                         protect_content=True if ident == "filep" else False,
                         reply_markup=InlineKeyboardMarkup(
@@ -781,6 +782,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             else:
                 dm = await client.send_cached_media(
                         chat_id=query.from_user.id,
+                        file_id=file_id,
                         caption=f_caption,
                         protect_content=True if ident == "filep" else False,
                         reply_markup=InlineKeyboardMarkup(
