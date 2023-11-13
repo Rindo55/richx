@@ -70,7 +70,7 @@ LOG_CHANNEL = int(environ.get('LOG_CHANNEL', 0))
 
 SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'iMoviesRobot_channel')
 P_TTI_SHOW_OFF = is_enabled((environ.get('P_TTI_SHOW_OFF', "True")), True)
-IMDB = is_enabled((environ.get('IMDB', "True")), True)
+IMDB = is_enabled((environ.get('IMDB', "False")), False)
 SINGLE_BUTTON = is_enabled((environ.get('SINGLE_BUTTON', "True")), True)
 CUSTOM_FILE_CAPTION = environ.get("CUSTOM_FILE_CAPTION", "<b><code>{file_name}</code>\n\n┏━━━━•❅•°•❈•°•❅•━━━━┓ ✰<b>𝐉𝐨𝐢𝐧 [ 𝙈𝙤𝙫𝙞𝙚𝙨 𝙂𝙧𝙤𝙪𝙥 ](https://t.me/imoviesrobot_group)</b> 👑✰ ┗━━━━•❅•°•❈•°•❅•━━━━┛\n\n⚠️ 𝐍𝐨𝐭𝐞: This message will be Auto-deleted after 5 minutes to avoid copyright issues.\n\n𝙁𝙤𝙧𝙬𝙖𝙧𝙙 𝙩𝙤 𝙨𝙤𝙢𝙚 𝙤𝙩𝙝𝙚𝙧 𝙘𝙝𝙖𝙩 𝙤𝙧 𝙎𝙖𝙫𝙚𝙙 𝙈𝙚𝙨𝙨𝙖𝙜𝙚𝙨")
 BATCH_FILE_CAPTION = environ.get("BATCH_FILE_CAPTION", CUSTOM_FILE_CAPTION)
@@ -135,7 +135,7 @@ DIRECT_GEN_DB = int(os.environ.get("DIRECT_GEN_DB", "-1001318649170"))
 DIRECT_GEN_URL = os.environ.get("DIRECT_GEN_URL", "https://cdn.animxt.fun/") # https://example.com/
 DIRECT_GEN = bool(DIRECT_GEN_DB and DIRECT_GEN_URL)
 
-STREAM_URL = is_enabled((environ.get('STREAM_URL', "False")), False)
+STREAM_URL = is_enabled((environ.get('STREAM_URL', "True")), True)
 STREAM_API = environ.get("STREAM_API", "1f5f1a40bec1bb6278f0fdbe8dd67bdb12690746")
 STREAM_SITE = environ.get("STREAM_SITE", "omegalinks.in")
 STREAM_LONG = environ.get("STREAM_LONG", False)
