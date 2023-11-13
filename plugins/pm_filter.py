@@ -730,7 +730,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
 					],
 				]
 			),
-			)
+		)
 		stream, download = await direct_gen_handler(dm)
                 if stream and download:
 			await dm.edit_reply_markup(
