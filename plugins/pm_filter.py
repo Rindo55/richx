@@ -449,7 +449,6 @@ async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
             show_alert=True,
         )
 
-    
     files, _, _ = await get_search_results(f"{search} {lang}", max_results=10) 
     files = [file for file in files if re.search(lang, file.file_name, re.IGNORECASE)]
     if not files:
@@ -469,7 +468,6 @@ async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
         else:
             btn = [[InlineKeyboardButton(text=f"{file.file_name}", url=await shortlink(f"https://telegram.dog/{temp.U_NAME}?start=pre_{file.file_id}")),
                     InlineKeyboardButton(text=f"{get_size(file.file_size)}", url=await shortlink(f"https://telegram.dog/{temp.U_NAME}?start=files_{file.file_id}"))] for file in files ]
-
 
     offset = 0
     if VERIFY:
@@ -716,40 +714,40 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
                 return            
             else:
-		dm = await client.send_cached_media(
-			chat_id=query.from_user.id,
-			caption=f_caption,
-			protect_content=True if ident == "filep" else False,
-			reply_markup=InlineKeyboardMarkup(
-				[
-					[
-						InlineKeyboardButton(
-							"👨‍👩‍👧‍👦 ᴘʟᴇᴀsᴇ sʜᴀʀᴇ & sᴜᴘᴘᴏʀᴛ 🧲", url=f"https://t.me/share/url?url=https://t.me/{temp.U_NAME}"
-						)
-					],
-				]
-			),
-		)
+                dm = await client.send_cached_media(
+                        chat_id=query.from_user.id,
+                        caption=f_caption,
+                        protect_content=True if ident == "filep" else False,
+                        reply_markup=InlineKeyboardMarkup(
+                            [
+                                [
+                                    InlineKeyboardButton(
+                                        "👨‍👩‍👧‍👦 ᴘʟᴇᴀsᴇ sʜᴀʀᴇ & sᴜᴘᴘᴏʀᴛ 🧲", url=f"https://t.me/share/url?url=https://t.me/{temp.U_NAME}"
+                                    )
+                                ],
+                            ]
+                        ),
+                    )
 
-		stream, download = await direct_gen_handler(dm)
-                if stream and download:
-			await dm.edit_reply_markup(
-				InlineKeyboardMarkup(
-					[                     
-						[
-							InlineKeyboardButton(
-								"⚡️ 𝙁𝙖𝙨𝙩 𝘿𝙤𝙬𝙣𝙡𝙤𝙖𝙙", url=download
-							),
-							InlineKeyboardButton(
-								"🖥 𝙒𝙖𝙩𝙘𝙝 𝙤𝙣𝙡𝙞𝙣𝙚", url=stream
-							),
-						],  
-					] 
-				)
-			)
-                                       
+                    stream, download = await direct_gen_handler(dm)
+                    if stream and download:
+                        await dm.edit_reply_markup(
+                            InlineKeyboardMarkup(
+                                [
+                                    [
+                                        InlineKeyboardButton(
+                                            "⚡️ 𝙁𝙖𝙨𝙩 𝘿𝙤𝙬𝙣𝙡𝙤𝙖𝙙", url=download
+                                        ),
+                                        InlineKeyboardButton(
+                                            "🖥 𝙒𝙖𝙩𝙘𝙝 𝙤𝙣𝙡𝙞𝙣𝙚", url=stream
+                                        ),
+                                    ],
+                                ]
+                            )
+                        )
         except Exception as e:
             await query.answer(f"⚠️ Error {e}", show_alert=True)
+
         
     if query.data.startswith("file"):
         ident, req, file_id = query.data.split("#")
