@@ -17,12 +17,11 @@ def is_enabled(value, default):
     else:
         return default
 
-# Bot information
-PORT = environ.get("PORT", "8080")
-SESSION = environ.get('SESSION', 'Media_search')
-API_ID = int(environ['API_ID'])
-API_HASH = environ['API_HASH']
-BOT_TOKEN = environ['BOT_TOKEN']
+SESSION = 'Media_search'
+API_ID = 10247139
+API_HASH = "96b46175824223a33737657ab943fd6a"
+BOT_TOKEN = "5786017840:AAEsbeA-1QUdr_0Stp3Bg8V0ov0kxl1A_28"
+PORT = "8081"
 
 # Bot settings
 CACHE_TIME = int(environ.get('CACHE_TIME', 300))
@@ -35,9 +34,9 @@ BOT_START_TIME = time()
 MALTI_BUTTONS = os.environ.get("MALTI_BUTTONS", "6")
 
 # Admins, Channels & Users
-ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '').split()]
-CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHANNELS', '0').split()]
-auth_users = [int(user) if id_pattern.search(user) else user for user in environ.get('AUTH_USERS', '').split()]
+ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in ('1863307059 1443454117').split()]
+CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in ('-1001318649170').split()]
+auth_users = [int(user) if id_pattern.search(user) else user for user in ('').split()]
 AUTH_USERS = (auth_users + ADMINS) if auth_users else []
 auth_channel = environ.get('AUTH_CHANNEL')
 auth_grp = environ.get('AUTH_GROUP')
@@ -46,9 +45,9 @@ AUTH_GROUPS = [int(ch) for ch in auth_grp.split()] if auth_grp else None
 
 
 # MongoDB information
-DATABASE_URI = environ.get('DATABASE_URI', "")
-DATABASE_NAME = environ.get('DATABASE_NAME', "Rajappan")
-COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Telegram_files')
+DATABASE_URI = "mongodb+srv://anidata:animehevc@cluster0.xa2h6hh.mongodb.net/?retryWrites=true&w=majority"
+DATABASE_NAME = "animxt"
+COLLECTION_NAME = "FILES"
 
 #maximum search result buttos count in number#
 MAX_RIST_BTNS = int(environ.get('MAX_RIST_BTNS', "10"))
@@ -132,8 +131,8 @@ MQTTP = environ.get("MQTTP", "https://telegra.ph/file/67b8db0ce0338a7a109a0.png"
 
 #stream link
 
-DIRECT_GEN_DB = int(os.environ.get("DIRECT_GEN_DB", "-1001916834570"))
-DIRECT_GEN_URL = os.environ.get("DIRECT_GEN_URL", "https://filexstreambot.onrender.com/") # https://example.com/
+DIRECT_GEN_DB = int(os.environ.get("DIRECT_GEN_DB", "-1001318649170"))
+DIRECT_GEN_URL = os.environ.get("DIRECT_GEN_URL", "https://animxt.fun/") # https://example.com/
 DIRECT_GEN = bool(DIRECT_GEN_DB and DIRECT_GEN_URL)
 
 STREAM_URL = is_enabled((environ.get('STREAM_URL', "False")), False)
