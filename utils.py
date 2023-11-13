@@ -472,8 +472,6 @@ async def gen_link(log_msg: Message):
     page_link = f"{DIRECT_GEN_URL}watch/{get_hash(log_msg)}{log_msg.id}"
     stream_link = f"{DIRECT_GEN_URL}{log_msg.id}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
     # short
-    page_link = await stream_short_link( page_link)
-    stream_link = await stream_short_link(stream_link)
     return page_link, stream_link
 
 
