@@ -716,42 +716,37 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
                 return            
             else:
-		    dm = await client.send_cached_media(
-                    chat_id=query.from_user.id,
-                    file_id=file_id,
-                    caption=f_caption,
-                    protect_content=True if ident == "filep" else False,
-                    reply_markup=InlineKeyboardMarkup(
-                         [
-                             [
-                                InlineKeyboardButton(
-                                    "👨‍👩‍👧‍👦 ᴘʟᴇᴀsᴇ sʜᴀʀᴇ & sᴜᴘᴘᴏʀᴛ 🧲", url=f"https://t.me/share/url?url=https://t.me/{temp.U_NAME}"
-                                )
-                             ],
-                         ]
-                    ),
-                )
-                stream, download = await direct_gen_handler(dm)
+		dm = await client.send_cached_media(
+                chat_id=query.from_user.id,
+                file_id=file_id,
+                caption=f_caption,
+                protect_content=True if ident == "filep" else False,
+                reply_markup=InlineKeyboardMarkup(
+			[
+				[
+					InlineKeyboardButton(
+						"👨‍👩‍👧‍👦 ᴘʟᴇᴀsᴇ sʜᴀʀᴇ & sᴜᴘᴘᴏʀᴛ 🧲", url=f"https://t.me/share/url?url=https://t.me/{temp.U_NAME}"
+					)
+				],
+			]
+		),
+		)
+		stream, download = await direct_gen_handler(dm)
                 if stream and download:
-                    await dm.edit_reply_markup(
-                        InlineKeyboardMarkup(
-                            [                     
-                                [
-                                    InlineKeyboardButton(
-                                        "⚡️ 𝙁𝙖𝙨𝙩 𝘿𝙤𝙬𝙣𝙡𝙤𝙖𝙙", url=download
-                                    ),
-                                    InlineKeyboardButton(
-                                        "🖥 𝙒𝙖𝙩𝙘𝙝 𝙤𝙣𝙡𝙞𝙣𝙚", url=stream
-                                    ),
-                                ],
-                                [
-                                    InlineKeyboardButton(
-                                        "👨‍👩‍👧‍👦 ᴘʟᴇᴀsᴇ sʜᴀʀᴇ & sᴜᴘᴘᴏʀᴛ 🧲", url=f"https://t.me/share/url?url=https://t.me/{temp.U_NAME}"
-                                    )
-                                ],   
-                            ] 
-                        )
-                    )
+			await dm.edit_reply_markup(
+				InlineKeyboardMarkup(
+					[                     
+						[
+							InlineKeyboardButton(
+								"⚡️ 𝙁𝙖𝙨𝙩 𝘿𝙤𝙬𝙣𝙡𝙤𝙖𝙙", url=download
+							),
+							InlineKeyboardButton(
+								"🖥 𝙒𝙖𝙩𝙘𝙝 𝙤𝙣𝙡𝙞𝙣𝙚", url=stream
+							),
+						],  
+					] 
+				)
+			)
                                        
         except Exception as e:
             await query.answer(f"⚠️ Error {e}", show_alert=True)
