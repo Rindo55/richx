@@ -132,7 +132,7 @@ MQTTP = environ.get("MQTTP", "https://telegra.ph/file/67b8db0ce0338a7a109a0.png"
 #stream link
 
 DIRECT_GEN_DB = int(os.environ.get("DIRECT_GEN_DB", "-1001318649170"))
-DIRECT_GEN_URL = os.environ.get("DIRECT_GEN_URL", "https://animxt.fun/") # https://example.com/
+DIRECT_GEN_URL = os.environ.get("DIRECT_GEN_URL", "https://cdn.animxt.fun/") # https://example.com/
 DIRECT_GEN = bool(DIRECT_GEN_DB and DIRECT_GEN_URL)
 
 STREAM_URL = is_enabled((environ.get('STREAM_URL', "False")), False)
