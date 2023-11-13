@@ -731,20 +731,20 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
                 stream, download = await direct_gen_handler(dm)
                 if stream and download:
-			await dm.edit_reply_markup(
-				InlineKeyboardMarkup(
-					[
-						[
-							InlineKeyboardButton(
-								"⚡️ 𝙁𝙖𝙨𝙩 𝘿𝙤𝙬𝙣𝙡𝙤𝙖𝙙", url=download
-							),
-							InlineKeyboardButton(
-								"🖥 𝙒𝙖𝙩𝙘𝙝 𝙤𝙣𝙡𝙞𝙣𝙚", url=stream
-							),
-						],
-					]
-				)
-			)
+                        await dm.edit_reply_markup(
+                            InlineKeyboardMarkup(
+                                [
+                                    [
+                                        InlineKeyboardButton(
+                                            "⚡️ 𝙁𝙖𝙨𝙩 𝘿𝙤𝙬𝙣𝙡𝙤𝙖𝙙", url=download
+                                        ),
+                                        InlineKeyboardButton(
+                                            "🖥 𝙒𝙖𝙩𝙘𝙝 𝙤𝙣𝙡𝙞𝙣𝙚", url=stream
+                                        ),
+                                    ],
+                                ]
+                            )
+                        )
         except Exception as e:
             await query.answer(f"⚠️ Error {e}", show_alert=True)
 
